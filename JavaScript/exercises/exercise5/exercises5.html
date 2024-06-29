@@ -1,0 +1,222 @@
+<!--5l-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SuperSimpleDev JavaScript - Exercise 5 | Variables - (5l - Calculator)</title>
+
+	<!--Extra by Myself -->
+	<style type="text/css">
+		div {
+			background: lightblue;
+			display: inline-block;
+			width: 200px;
+			padding: 10px;
+		}
+
+		div button {
+			width: 40px;
+			height:40px;
+		}
+
+		.calculation, .result { 
+			font-family: Arial;
+			color: gray;
+			font-size: 22px;
+		}
+
+		span.calc{
+			color: green;
+			font-size: 30px;
+		}
+
+		span.res{
+			color: red;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<!--5h-->
+	<p>Buttons that add to Cart.</p>
+	<button onclick="
+		cartQuantity = cartQuantity + 4;
+		console.log(cartQuantity);
+	">+4</button>
+
+	<button onclick="
+		cartQuantity = cartQuantity + 5;
+		console.log(cartQuantity);
+	">+5</button>
+
+	<hr>
+
+	<!--5i-->
+	<p>Remove from cart.</p>
+	<button onclick="
+		cartQuantity = cartQuantity - 1;
+		console.log(cartQuantity);
+	">Remove from cart</button>
+
+	<hr>
+
+	<!--5j-->
+	<p>Buttons to decrese the quantity 2 and 3 in the cart</p>
+	<button onclick="
+		cartQuantity = cartQuantity - 2;
+		console.log(cartQuantity);
+	">-2</button>
+
+	<button onclick="
+		cartQuantity = cartQuantity - 3;
+		console.log(cartQuantity);
+	">-3</button>
+
+	<hr>
+	<hr>
+
+	<!--5k-->
+
+		<!--5h-->
+		<p>Buttons that add to Cart.</p>
+		<button onclick="
+			cartQuantity += 4;
+			console.log(cartQuantity);
+		">+4</button>
+
+		<button onclick="
+			cartQuantity += 5;
+			console.log(cartQuantity);
+		">+5</button>
+
+		<hr>
+
+		<!--5i-->
+		<p>Remove from cart.</p>
+		<button onclick="
+			cartQuantity--;
+			console.log(cartQuantity);
+		">Remove from cart</button>
+
+		<hr>
+
+		<!--5j-->
+		<p>Buttons to decrese the quantity 2 and 3 in the cart</p>
+		<button onclick="
+			cartQuantity -= 2;
+			console.log(cartQuantity);
+		">-2</button>
+
+		<button onclick="
+			cartQuantity -= 3;
+			console.log(cartQuantity);
+		">-3</button>
+
+	<!--5m-->
+	<p>Creating buttons for calculator</p>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>+</button>
+	<button>=</button>
+
+	<hr>
+
+	<!--5o-->
+	<p>Adding string '1' to variable 'calculation'</p>
+	<button onclick="calculation += '1'; console.log(calculation);">1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>+</button>
+	<button>=</button>
+
+	<hr>
+
+	<!--5p-->
+	<p>Doing the same as '5o' to '2', '3' and ' + '</p>
+	<button onclick="calculation += '1'; console.log(calculation);">1</button>
+	<button onclick="calculation += '2'; console.log(calculation);">2</button>
+	<button onclick="calculation += '3'; console.log(calculation);">3</button>
+	<button onclick="calculation += ' + '; console.log(calculation);">+</button>
+	<button>=</button>
+
+	<hr>
+
+	<!--5q-->
+	<p>Doing the same as '5o' to '2', '3' and ' + '</p>
+	<button onclick="calculation += '1'; console.log(calculation);">1</button>
+	<button onclick="calculation += '2'; console.log(calculation);">2</button>
+	<button onclick="calculation += '3'; console.log(calculation);">3</button>
+	<button onclick="calculation += ' + '; console.log(calculation);">+</button>
+	<button onclick="result = eval(calculation); console.log(result);">=</button>
+
+	<hr>
+
+	<!--5r-->
+
+
+	<p>Rest of the buttons</p>
+
+	<div>
+
+		<p class="calculation js-calculation">Cálculo: </p>
+
+		<p class="result js-result"></p>
+
+		<p>
+			<!--Work on this later-->
+			<button  onclick="calculation = ''; console.log(calculation); showResult(calculation); showCalc(calculation)">CE</button>
+			<!--<button>MRC</button>
+			<button>M-</button>
+			<button>M+</button>-->
+		</p>
+
+
+		<p>
+
+			<!--Work on this later-->
+			<!--
+			<button onclick="calculation += '1'; console.log(calculation);">ON/CE</button>
+			<button onclick="calculation += '2'; console.log(calculation);">MRC</button>
+			<button onclick="calculation += '3'; console.log(calculation);">M-</button>
+			<button onclick="calculation += 3; console.log(calculation);">M+</button>-->
+		</p>
+
+		<p>
+			<button onclick="calculation += '7'; console.log(calculation); showCalc(calculation)">7</button>
+			<button onclick="calculation += '8'; console.log(calculation); showCalc(calculation)">8</button>
+			<button onclick="calculation += '9'; console.log(calculation); showCalc(calculation)">9</button>
+			<button onclick="calculation += ' / '; console.log(calculation); showCalc(calculation)">/</button>
+		</p>
+
+		<p>
+			<button onclick="calculation += '4'; console.log(calculation); showCalc(calculation)">4</button>
+			<button onclick="calculation += '5'; console.log(calculation); showCalc(calculation)">5</button>
+			<button onclick="calculation += '6'; console.log(calculation); showCalc(calculation)">6</button>
+			<button onclick="calculation += ' * '; console.log(calculation); showCalc(calculation)">X</button>
+		</p>
+
+		<p>
+			<button onclick="calculation += '1'; console.log(calculation); showCalc(calculation)">1</button>
+			<button onclick="calculation += '2'; console.log(calculation); showCalc(calculation)">2</button>
+			<button onclick="calculation += '3'; console.log(calculation); showCalc(calculation)">3</button>
+			<button onclick="calculation += ' - '; console.log(calculation); showCalc(calculation)">-</button>
+		</p>
+
+
+		<p>
+			<button onclick="calculation += '0'; console.log(calculation); showCalc(calculation)">0</button>
+			<button onclick="calculation += '.'; console.log(calculation); showCalc(calculation)">.</button>
+			<button onclick="result = eval(calculation); console.log(Math.round(result, 2)); showResult(result); calculation = Math.round(result, 2)">=</button>
+			<button onclick="calculation += ' + '; console.log(calculation); showCalc(calculation)">+</button>
+		</p>
+	</div>
+
+	
+	
+
+	<script type="text/javascript" src="exercises5.js"></script>
+</body>
+</html>
