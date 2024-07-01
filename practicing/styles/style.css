@@ -1,0 +1,33 @@
+body {
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: black;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+
+svg.shipping {
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+}
+
+p.shipping {
+	color: white;
+	display: inline;
+}
+
+a {
+	display: flex;
+	margin-left: 30px;
+	width: 100px;
+	height: 60px;
+	background-color: orange;
+	color: white;
+	border-radius: 10px;
+	align-items: center;
+	text-align: center;
+}
