@@ -130,3 +130,84 @@ convertLength(1000, 'km', 'miles');
 convertLength(1500, 'miles', 'km');
 
 convertLength(1600, 'km', 'miles');
+
+
+//7h Update 7g - now includes feet
+
+console.log('CONVERT LENGTH UPDATE INCLUDES MILES');
+
+function convertKmtoFeets(km) {
+	const feet = km * 3281
+	console.log(km + ' km in feets is approximately: ' + feet + ' miles.');
+}
+
+function convertFeetstoKm(feet) {
+	const km = feet / 3281;
+	console.log(feet + ' feet is approximately: ' + km + ' km.');
+}
+
+function convertMilestoFeets(miles) {
+	const feet = miles * 5280;
+	console.log(miles + ' miles is approximately: ' + feet + ' feets.');
+}
+
+function convertFeetstoMiles(feet) {
+	const miles = feet / 5280;
+	console.log(feet + ' feet is approximately: ' + miles + ' miles.');
+}
+
+function convertLength2(length, from, to) {
+	if(from === 'km' && to === 'miles'){
+		convertKmtoMiles(length);
+	}else if(from === 'miles' && to === 'km') {
+		convertMilestoKm(length);
+	}else if(from === 'miles' && to === 'feet') {
+		convertMilestoFeets(length);
+	}else if(from === 'feet' && to === 'miles') {
+		convertFeetstoMiles(length);
+	}else if(from === 'km' && to === 'feet') {
+		convertKmtoFeets(length);
+	}else if(from === 'feet' && to === 'km') {
+		convertFeetstoKm(length);
+	}
+}
+
+convertLength2(1000, 'km', 'miles');
+
+convertLength2(1500, 'miles', 'km');
+
+convertLength2(1600, 'km', 'miles');
+
+convertLength2(1000, 'km', 'feet');
+
+convertLength2(4000, 'feet', 'km');
+
+convertLength2(10000, 'feet', 'miles');
+
+convertLength2(1600, 'miles', 'feet');
+
+//7i Update 7h, add invalid unit if it is.
+
+console.log('ADDING INVALID UNIT');
+
+function convertLength3(length, from, to) {
+	if(from === 'km' && to === 'miles'){
+		convertKmtoMiles(length);
+	}else if(from === 'miles' && to === 'km') {
+		convertMilestoKm(length);
+	}else if(from === 'miles' && to === 'feet') {
+		convertMilestoFeets(length);
+	}else if(from === 'feet' && to === 'miles') {
+		convertFeetstoMiles(length);
+	}else if(from === 'km' && to === 'feet') {
+		convertKmtoFeets(length);
+	}else if(from === 'feet' && to === 'km') {
+		convertFeetstoKm(length);
+	}else if(from !== 'feet' && from !== 'miles' && from !== 'km'){
+		console.log(`Invalid Unit: ${from}`);
+	}else if(to !== 'feet' && to !== 'miles' && to !== 'km'){
+		console.log(`Invalid Unit: ${to}`);
+	}
+}
+
+convertLength3(5680, 'mile', 'feet');//Invalid unit: mile
