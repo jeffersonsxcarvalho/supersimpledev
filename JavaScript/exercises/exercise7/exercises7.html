@@ -8,7 +8,108 @@
 	<title>SuperSimpleDev JavaScript - Exercise 7 | Functions</title>
 </head>
 <body>
-	
+
+	<!--7j - Copy of - 5r-->
+
+
+	<p>Rest of the buttons</p>
+
+	<div>
+
+		<p class="calculation js-calculation">Cálculo: </p>
+
+		<p class="result js-result"></p>
+
+		<p>
+			<!--Work on this later-->
+			<button  onclick="updateCalculation(''); showResult(calculation);">CE</button>
+			<!--<button>MRC</button>
+			<button>M-</button>
+			<button>M+</button>-->
+		</p>
+
+
+		<p>
+
+			<!--Work on this later-->
+			<!--
+			<button onclick="calculation += '1'; console.log(calculation);">ON/CE</button>
+			<button onclick="calculation += '2'; console.log(calculation);">MRC</button>
+			<button onclick="calculation += '3'; console.log(calculation);">M-</button>
+			<button onclick="calculation += 3; console.log(calculation);">M+</button>-->
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('7')">7</button>
+			<button onclick="updateCalculation('8')">8</button>
+			<button onclick="updateCalculation('9')">9</button>
+			<button onclick="updateCalculation(' / ')">/</button>
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('4')">4</button>
+			<button onclick="updateCalculation('5')">5</button>
+			<button onclick="updateCalculation('6')">6</button>
+			<button onclick="updateCalculation(' * ')">X</button>
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('1')">1</button>
+			<button onclick="updateCalculation('2')">2</button>
+			<button onclick="updateCalculation('3')">3</button>
+			<button onclick="updateCalculation(' - ')">-</button>
+		</p>
+
+
+		<p>
+			<button onclick="updateCalculation('0')">0</button>
+			<button onclick="updateCalculation('.')">.</button>
+			<button onclick="result = eval(calculation); console.log(Math.round(result, 2)); showResult(result); calculation = Math.round(result, 2)">=</button>
+			<button onclick="updateCalculation(' + ')">+</button>
+		</p>
+	</div>
+
+
+	<hr>
+
+	<!-- 7k - Copy of the cartQuantity project (6l), I added 6j too-->
+
+	<!--6j-->
+
+		
+		<p>Buttons that add to Cart.</p>
+		<button onclick="
+			updateCartQuantity(4);
+		">+4</button>
+
+		<button onclick="
+			updateCartQuantity(5);
+		">+5</button>
+
+		<hr>
+
+		
+		<p>Remove from cart.</p>
+		<button onclick="
+			updateCartQuantity(-1);
+		">Remove from cart</button>
+
+		<hr>
+
+	<!--6l-->
+		<p>Buttons to decrese the quantity 2 and 3 in the cart</p>
+		<button onclick="
+			updateCartQuantity(-2);
+		">-2</button>
+
+		<button onclick="
+			updateCartQuantity(-3);
+		">-3</button>
+
+	<!-- 7j - Didn't understand -->
+
+
+
 
 	<script type="text/javascript" src="exercises7.js"></script>
 </body>

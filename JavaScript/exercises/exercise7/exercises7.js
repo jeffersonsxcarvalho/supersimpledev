@@ -211,3 +211,76 @@ function convertLength3(length, from, to) {
 }
 
 convertLength3(5680, 'mile', 'feet');//Invalid unit: mile
+
+
+//7j - copy of 5r
+
+
+//let result = 0;
+
+let calculation = '';
+
+let p1 = document.querySelector('.js-result');
+let p2 = document.querySelector('.js-calculation');
+
+p1.innerHTML = 'Resultado: '
+
+
+function showResult(result){
+	p1.innerHTML = 'Resultado: <span class="res">' + result + '</span>';
+}
+
+function showCalc(calculation){
+	p2.innerHTML = 'Cálculo: <span class="calc">' + calculation.replace('*', 'x') + '<span>';
+}
+
+const btn = document.querySelectorAll('div button');
+
+/* Try to show the number before it's calculated.
+
+btn.forEach((elem) => {
+	elem.addEventListener('click', () => {
+		const res = eval(calculation) || result;
+		showResult(res);
+	})
+})*/
+//console.log(btn);
+
+//7j
+
+function updateCalculation(char) {
+	if(char !== ''){
+		calculation += char;
+	}else{
+		calculation = char;
+	}
+	 
+	console.log(calculation); 
+	showCalc(calculation)
+	
+}
+
+
+//7k copy of the cartQuantity project 6l
+
+let cartQuantity = 0;
+
+function updateCartQuantity(num){
+	cartQuantity += num;
+	if(num === -1){
+		if(cartQuantity < 0){
+			alert('Cart is empty!');
+			cartQuantity++;
+		}
+	}else if(cartQuantity < 0){
+		alert(`Cart has already less than ${(num**2)**(1/2)} items!`);
+		cartQuantity -= num;
+	}else if(cartQuantity > 10){
+		alert('Maximum of 10 items!');
+		cartQuantity -= num;
+	}
+
+	console.log(cartQuantity);	
+}
+
+//7l didn't understand
