@@ -184,6 +184,6 @@ console.log(message);
 
 //Challenges - Improving Cart
 
-//6j
+//6k
 
 let cartQuantity = 0;

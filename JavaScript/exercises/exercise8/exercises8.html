@@ -9,7 +9,119 @@
 </head>
 <body>
 
+	<!--7j - Copy of - 5r-->
+
+
+	<p>Rest of the buttons</p>
+
+	<div>
+
+		<p class="calculation js-calculation">Cálculo: </p>
+
+		<p class="result js-result"></p>
+
+		<p>
+			<!--Work on this later-->
+			<button  onclick="updateCalculation(''); showResult(calculation);">CE</button>
+			<!--<button>MRC</button>
+			<button>M-</button>
+			<button>M+</button>-->
+		</p>
+
+
+		<p>
+
+			<!--Work on this later-->
+			<!--
+			<button onclick="calculation += '1'; console.log(calculation);">ON/CE</button>
+			<button onclick="calculation += '2'; console.log(calculation);">MRC</button>
+			<button onclick="calculation += '3'; console.log(calculation);">M-</button>
+			<button onclick="calculation += 3; console.log(calculation);">M+</button>-->
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('7')">7</button>
+			<button onclick="updateCalculation('8')">8</button>
+			<button onclick="updateCalculation('9')">9</button>
+			<button onclick="updateCalculation(' / ')">/</button>
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('4')">4</button>
+			<button onclick="updateCalculation('5')">5</button>
+			<button onclick="updateCalculation('6')">6</button>
+			<button onclick="updateCalculation(' * ')">X</button>
+		</p>
+
+		<p>
+			<button onclick="updateCalculation('1')">1</button>
+			<button onclick="updateCalculation('2')">2</button>
+			<button onclick="updateCalculation('3')">3</button>
+			<button onclick="updateCalculation(' - ')">-</button>
+		</p>
+
+
+		<p>
+			<button onclick="updateCalculation('0')">0</button>
+			<button onclick="updateCalculation('.')">.</button>
+			<button onclick="result = eval(calc); console.log(Math.round(result, 2)); showResult(result); calc = Math.round(result, 2)">=</button>
+			<button onclick="updateCalculation(' + ')">+</button>
+		</p>
+	</div>
+
+	<hr>
+
+	<!--8i-->
+
+	<button onclick="
+		const guess = 'heads';
+
+		if(guess === result){
+			console.log('You win!');
+		}else{
+			console.log('You lose!');
+		}
+
+		//copy of 6j - Ternary - Needed 6i above
+
 	
+		//let message = guess === result ? 'You win!' : 'You lose!';
+		//console.log(message);
+	">
+		Heads
+	</button>
+
+
+	<button onclick="
+		const guess = 'tails';
+
+		if(guess === result){
+			console.log('You win!');
+		}else{
+			console.log('You lose!');
+		}
+
+		//copy of 6j - Ternary - Needed 6i above
+
+	
+		//let message = guess === result ? 'You win!' : 'You lose!';
+		//console.log(message);
+	">
+		Tails
+	</button>
+
+	<hr>
+
+	<!--8i-b-->
+	<p>Com função</p>
+
+	<button onclick="playGame('heads')">Heads</button>
+	<button onclick="playGame('tails')">Tails</button>
+
+	<p class="score"></p>
+
+
+
 
 	<script type="text/javascript" src="exercises8.js"></script>
 </body>
