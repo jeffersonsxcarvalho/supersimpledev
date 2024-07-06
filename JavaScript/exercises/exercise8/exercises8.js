@@ -188,12 +188,21 @@ const guess = 'heads';
 //8i-b improving the flip coing game
 
 		//8k
+
+		let p = document.querySelector('.score');
+
 		let score = {
 			wins: 0,
-			losses: 0
-		}
+			losses: 0,
+		};
 
-		localStorage.setItem('score', JSON.stringify(score));
+		//localStorage.setItem('score', JSON.stringify(score));
+
+		//localStorage.clear();
+
+		let scorels = localStorage.getItem('score') ? JSON.parse(localStorage.getItem('score')) : score;
+
+		p.innerHTML = `Wins: ${scorels.wins} <br> Losses: ${scorels.losses}`;
 
 
 function playGame(guess){
@@ -212,15 +221,19 @@ function playGame(guess){
 	console.log(message);
 
 	//8j 
-	if(message === 'You win!'){
-		score.wins += 1;
-	}else if(message === 'You lose!'){
-		score.losses += 1;
+	if(guess === result){
+		scorels.wins += 1;
+	}else if(guess !== result){
+		scorels.losses += 1;
 	}
 
-	p.innerHTML = `Wins: ${score.wins} <br> Losses: ${score.losses}`;
+	localStorage.setItem('score', JSON.stringify(scorels));
 
-	localStorage.setItem('score', JSON.stringify(score));
+
+	p.innerHTML = `Wins: ${scorels.wins} <br> Losses: ${scorels.losses}` || 'Wins: <br> Losses:' ;
+
+
+	console.log(localStorage.getItem('score'));
 
 
 }
@@ -235,13 +248,9 @@ function playGame(guess){
 
 
 
-let p = document.querySelector('.score');
-
-const scorels = localStorage.getItem('score');
-
-p.innerHTML = `Wins: ${scorels.wins} <br> Losses: ${scorels.losses}` || `Wins: <br> Losses:`;
 
 
+//const scorels = localStorage.getItem('score');
 
 //8k
 
