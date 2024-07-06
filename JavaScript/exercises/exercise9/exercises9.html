@@ -5,12 +5,85 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>SuperSimpleDev JavaScript - Exercise 8 | Objects</title>
+	<title>SuperSimpleDev JavaScript - Exercise 9 | DOM</title>
 </head>
 <body>
 
+	<!--9a-->
 
-	<!--8h-->
+	<button>9a</button>
+
+	<hr>
+
+	<!--9b-->
+
+	<button class="js-b">9b</button>
+
+	<hr>
+
+	<!--9c-->
+
+	<button class="js-heads" onclick="checkClick('heads')">Heads</button>
+	<button class="js-tails" onclick="checkClick('tails')">Tails</button>
+
+	<p class="js-pc"></p>
+
+	<hr>
+
+	<!--9d-->
+
+	<input type="text" class="js-name" onkeydown="/*9e*/messageName();">
+	<input type="submit" name="" value="Enviar" class="js-submit" onclick="messageName();" >
+	<p class="js-pName"></p>
+
+
+	<hr>
+
+
+	<!--9g-->
+
+	<p>Exercise 9g</p>
+
+	<p>YouTube Subscribe Button</p>
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <hr>
+
+    <p>Type and Update</p>
+
+    <input type="text" class="js-input-update" onkeyup="inputUpdate();">
+    <p class="js-pUpdate"></p>
+
+
+    <hr>
+
+    <!--9i-->
+
+    <p>Retry to do 7l</p>
+
+
+
+    <hr>
+
+    <!--9j-->
+
+    <p>Calculator project from 8h</p>
+
+    <!--8h-->
 
 
 	<!--Copy of 7j-->
@@ -75,60 +148,8 @@
 		</p>
 	</div>
 
-	<hr>
+    
 
-	<!--8i-->
-
-	<button onclick="
-		const guess = 'heads';
-
-		if(guess === result){
-			console.log('You win!');
-		}else{
-			console.log('You lose!');
-		}
-
-		//copy of 6j - Ternary - Needed 6i above
-
-	
-		//let message = guess === result ? 'You win!' : 'You lose!';
-		//console.log(message);
-	">
-		Heads
-	</button>
-
-
-	<button onclick="
-		const guess = 'tails';
-
-		if(guess === result){
-			console.log('You win!');
-		}else{
-			console.log('You lose!');
-		}
-
-		//copy of 6j - Ternary - Needed 6i above
-
-	
-		//let message = guess === result ? 'You win!' : 'You lose!';
-		//console.log(message);
-	">
-		Tails
-	</button>
-
-	<hr>
-
-	<!--8i-b-->
-	<p>Com função</p>
-
-	<button onclick="playGame('heads')">Heads</button>
-	<button onclick="playGame('tails')">Tails</button>
-
-	<p class="score"></p>
-
-
-
-
-	<script type="text/javascript" src="exercises8.js"></script>
+    <script type="text/javascript" src="exercises9.js"></script>
 </body>
 </html>
