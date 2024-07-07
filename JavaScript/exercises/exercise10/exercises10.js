@@ -12,7 +12,7 @@ console.log(result);
 
 const btn5 = document.querySelector('.btn5');
 
-function toggle() {
+function toggle0() {
 	if(btn5.classList.contains('is-toggled')){
 		btn5.classList.remove('is-toggled');
 	}else{
