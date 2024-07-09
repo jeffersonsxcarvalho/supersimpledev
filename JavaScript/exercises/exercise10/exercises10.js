@@ -89,7 +89,7 @@ function toggle3(btnx) {
 }
 
 
-//10g - Copy of the 10-dom-project
+//10h - Copy of the 10-dom-project
 
   /*String(25)
       console.log('25' - 5);
@@ -136,3 +136,73 @@ function toggle3(btnx) {
         }
       }
 
+
+//10i - copy of 9j
+
+      //9j
+
+
+//Copy of
+
+//8h
+
+//Copy of 7j
+
+//7j - copy of 5r
+
+
+//let result = 0;
+
+let calculation = '';
+
+//let p1 = document.querySelector('.js-result');
+let p2 = document.querySelector('.js-calculation');
+
+
+function showResult(result){
+	p2.innerHTML = '<span class="res">' + result + '</span>';
+	localStorage.setItem('calculation', result);
+}
+
+function showCalc(calculation){
+	p2.innerHTML = '<span class="calc">' + calc.replace('*', 'x') + '<span>';
+}
+
+/*const btn = document.querySelectorAll('div button');
+
+ Try to show the number before it's calculated.
+
+btn.forEach((elem) => {
+	elem.addEventListener('click', () => {
+		const res = eval(calculation) || result;
+		showResult(res);
+	})
+})*/
+//console.log(btn);
+
+//7j
+
+let calc = localStorage.getItem('calculation') || '';
+
+showCalc(calc);
+
+
+
+function updateCalculation(char) {
+	if(char !== ''){
+		calc += char;
+
+	}else{
+		calc = char;
+	}
+
+	localStorage.setItem('calculation', calc);
+
+	console.log(localStorage.calculation);
+ 
+	showCalc(calc);
+	
+}
+
+
+console.log(calculation);

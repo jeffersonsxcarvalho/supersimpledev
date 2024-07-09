@@ -69,7 +69,7 @@
 
 	<hr>
 
-	<!--10i-->
+	<!--10h-->
 
 	<p>Exercise 10g - only 1 button to be turned on/off at a time</p>
 
@@ -88,6 +88,85 @@
       calculateTotal();
     " class="calculate-button">Calculate</button>
     <p class="js-total-cost"></p>    
+
+
+    <hr>
+
+    <!--10i -styling calculator from 9j, 8h-->
+
+    <p>10i -styling calculator from 9j and 8h</p>
+
+     <!--9j-->
+
+    <p>Calculator project from 8h</p>
+
+    <!--8h-->
+
+
+	<!--Copy of 7j-->
+
+	<!--Copy of - 5r-->
+
+
+	<p>Rest of the buttons</p>
+
+	<div class="calc-container">
+
+		<p class="calculation js-calculation"></p>
+
+		<p class="result js-result"></p>
+
+
+		<p>
+
+			<!--Work on this later-->
+			<!--
+			<button onclick="calculation += '1'; console.log(calculation);">ON/CE</button>
+			<button onclick="calculation += '2'; console.log(calculation);">MRC</button>
+			<button onclick="calculation += '3'; console.log(calculation);">M-</button>
+			<button onclick="calculation += 3; console.log(calculation);">M+</button>-->
+		</p>
+
+		<p>
+			<button class="btn btn-dark" onclick="updateCalculation('1')">1</button>
+			<button class="btn btn-dark" onclick="updateCalculation('2')">2</button>
+			<button class="btn btn-dark" onclick="updateCalculation('3')">3</button>
+			<button class="btn btn-orange" onclick="updateCalculation(' + ')">+</button>
+			
+		</p>
+
+
+		<p>
+			<button class="btn btn-dark" onclick="updateCalculation('4')">4</button>
+			<button class="btn btn-dark" onclick="updateCalculation('5')">5</button>
+			<button class="btn btn-dark"onclick="updateCalculation('6')">6</button>
+			<button class="btn btn-orange" onclick="updateCalculation(' - ')">-</button>
+			
+		</p>
+
+		<p>
+			<button class="btn btn-dark" onclick="updateCalculation('7')">7</button>
+			<button class="btn btn-dark" onclick="updateCalculation('8')">8</button>
+			<button class="btn btn-dark" onclick="updateCalculation('9')">9</button>
+			<button class="btn btn-orange" onclick="updateCalculation(' * ')">X</button>
+			
+		</p>
+
+		<p>
+			<button class="btn btn-dark" onclick="updateCalculation('0')">0</button>
+			<button class="btn btn-dark" onclick="updateCalculation('.')">.</button>
+			<button class="btn btn-dark" onclick="result = eval(calc); console.log(Math.round(result, 2)); showResult(result); calc = Math.round(result, 2)">=</button>
+			<button class="btn btn-orange" onclick="updateCalculation(' / ')">/</button>			
+		</p>
+
+		<p>
+			<button class="btn btn-dark btn-clear" onclick="updateCalculation(''); showResult(calculation);">Clear</button>
+		</p>
+
+
+	</div>
+
+
     
 
   <script type="text/javascript" src="exercises10.js"></script>

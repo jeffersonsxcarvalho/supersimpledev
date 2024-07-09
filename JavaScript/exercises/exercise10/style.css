@@ -36,7 +36,7 @@
 }
 
 
-/*10i - Copy the code 10-dom-project*/
+/*10h - Copy the code 10-dom-project*/
 
 body {
         font-family: Arial;
@@ -80,3 +80,51 @@ body {
         padding: 12px 15px;
         cursor: pointer;
       }
+
+ /*10i - styling calculator from 9j and 8h */
+
+ .calc-container {
+ 	background-color: black;
+ 	color: white;
+ 	padding: 10px;
+ }
+
+ .calc-container p{
+ 	margin-left: 40%;
+ }
+
+ .calc-container button{
+ 	margin: 3px;
+ }
+
+.calculation {
+	height: 45px; 	
+ }
+
+ .calc, .res {
+	font-size: 40px; 	
+ }
+
+ .btn {
+ 	height: 60px;
+ 	width: 60px;
+ 	align-content: center;
+ 	align-items: center;
+ 	border: none;
+ 	color: white;
+ 	font-size: 20px;
+ 	border-radius: 50%;
+ }
+
+ .btn-dark {
+ 	background-color: rgb(100, 100, 100, 0.6);
+ }
+
+ .btn-orange {
+ 	background-color: rgb(250, 160, 0, 1);
+ }
+
+
+ .btn-clear {
+ 	font-size: 16px;
+ }
