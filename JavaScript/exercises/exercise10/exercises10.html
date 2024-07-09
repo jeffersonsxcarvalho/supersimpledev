@@ -67,8 +67,27 @@
 	<button class="btn10 group1" onclick="toggle2('.btn10');">Music</button>
 	<button class="btn11 group1" onclick="toggle2('.btn11');">Tech</button>
 
+	<hr>
 
+	<!--10i-->
 
+	<p>Exercise 10g - only 1 button to be turned on/off at a time</p>
+
+	<p>YouTube Subscribe Button</p>
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button subscribe-button">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>    
     
 
   <script type="text/javascript" src="exercises10.js"></script>
