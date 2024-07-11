@@ -25,6 +25,8 @@ function renderTodoList() {
       <div>${dueDate}</div>
       <button onclick="
         todoList.splice(${i}, 1);
+        //I added it
+        localStorage.setItem('todoList', JSON.stringify(todoList));
         renderTodoList();
       " class="delete-todo-button">Delete</button> 
     `;
@@ -48,8 +50,6 @@ function addTodo() {
     name,
     dueDate
   });
-
-  console.log(todoList);
 
 
   //I added it
