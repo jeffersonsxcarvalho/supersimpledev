@@ -270,16 +270,14 @@ findIndex(['green', 'red', 'blue', 'red'], 'yellow');*/
 
 function unique(array) {
 	let newArray = [];
-	let indexes = [findIndex(array, array[0])];
+	let indexes = [];
 
-	for (let i = 1; i < array.length; i++) {
-		for(let j = 0; j < indexes.length; j++){
-			if(findIndex(array, array[i]) !== indexes[j] && indexes.length <= array.length-1){
-				indexes.push(findIndex(array, array[i]));
-				console.log(indexes);
-			}
-		}
-	}				
+
+	for (let i = 0; i < array.length; i++) {
+		indexes.push(findIndex(array, array[i]));
+	}
+
+
 
 	//return newArray;
 
@@ -289,3 +287,5 @@ function unique(array) {
 unique(['green', 'red', 'blue', 'red']);
 
 unique(['red', 'green', 'green', 'red']);
+
+console.log('VOLTAR PARA FAZER!!')
