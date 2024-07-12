@@ -269,12 +269,37 @@ findIndex(['green', 'red', 'blue', 'red'], 'yellow');*/
 //Não consegui ainda
 
 function unique(array) {
-	let newArray = [];
-	let indexes = [];
+	let newArray = [array[0]];
+	//let indexes = [];
 
 
 	for (let i = 0; i < array.length; i++) {
-		indexes.push(findIndex(array, array[i]));
+				
+	}
+
+
+
+	//return newArray;
+
+	console.log(newArray);
+}
+
+
+//Consegui abaixo usando o includes.
+
+function unique(array) {
+
+	let newArray = [array[0]];
+	//let indexes = [];
+
+
+	for (let i = 0; i < array.length; i++) {
+		if(newArray.includes(array[i])){
+			continue;
+		}else{
+			newArray.push(array[i]);
+		}
+		
 	}
 
 
@@ -287,5 +312,7 @@ function unique(array) {
 unique(['green', 'red', 'blue', 'red']);
 
 unique(['red', 'green', 'green', 'red']);
+
+//unique([]);
 
 console.log('VOLTAR PARA FAZER!!')
