@@ -49,14 +49,14 @@ console.log('12d');
 
 
 function btnToFinished2() {
-	btn = document.querySelector('.btn12d');
+	const btn = document.querySelector('.btn12d');
 
 	btn.innerHTML = 'Finished';
 }
 
 function btnToLoading() {
-	btn = document.querySelector('.btn12d');
-	btn2.innerHTML = 'Loading...';
+	const btn = document.querySelector('.btn12d');
+	btn.innerHTML = 'Loading...';
 }
 
 //12e
@@ -78,30 +78,59 @@ function removeMessage() {
 	par12e.innerHTML = '';
 }
 
+
+
 //12f
 
-console.log('12e');
+console.log('12f');
+
+//let isAppearing = false;
+
+function removeMessage2() {
+		
+	const par12f = document.querySelector('.par12f');
+
+	par12f.innerHTML = '';
+}
+
+function removeMsgTimeoutId(){
+		const timeoutId = setTimeout(removeMessage2, 2000);
+		return timeoutId;		
+}
+
+function stopTimoutRemoveMsg(timeoutId){
+	clearTimeout(timeoutId);
+}
+
+
+
+let timeoutId;
 
 function appearAndDisappearMsg() {
 
-	if(timeoutId){
-		clearTimeout(timeoutId);
-	}
-
-
-	function addMessage() {
-
-		const par12e = document.querySelector('.par12e');
-
-		par12e.innerHTML = 'Added';	
-	}
-
-	const timeoutId = setTimeout(function removeMessage() {
+	if(!timeoutId){
+		timeoutId = removeMsgTimeoutId()
 		
-		const par12e = document.querySelector('.par12e');
+		const par12f = document.querySelector('.par12f');
 
-		par12e.innerHTML = '';
-	}, 2000);
+		par12f.innerHTML = 'Added';
+	}else{
+		stopTimoutRemoveMsg(timeoutId);
 
+		timeoutId = removeMsgTimeoutId()
+		
+		const par12f = document.querySelector('.par12f');
+
+		par12f.innerHTML = 'Added';
+	}
+	
 }
+
+
+	
+
+
+	
+
+
 
