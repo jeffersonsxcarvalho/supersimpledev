@@ -126,7 +126,107 @@ function appearAndDisappearMsg() {
 	
 }
 
+//12g
 
+console.log('12g');
+
+
+function titleChange1() {
+
+	if(document.title === 'App'){
+		document.title = '(2) New messages';
+	}else{
+		document.title = 'App';
+	}
+}
+
+function setInt(fun, time) {
+	const intervalId = setInterval(fun, time);
+	return intervalId;
+}
+
+function clearInt(intervalId){
+	if(intervalId){
+		clearInterval(intervalId);
+	}
+}
+
+let intervalId;
+
+function titleChangeG(){
+
+	if(intervalId){
+		clearInterval(intervalId);
+		intervalId = '';
+	}else{
+		intervalId = setInterval(titleChange1, 1000);
+	}
+
+}
+
+//12h
+
+console.log('12h');
+
+
+let intervalIdH;
+
+let numH = 0;
+
+function titleChangeH(num){
+
+
+	if(intervalIdH){
+		clearInterval(intervalIdH);
+		intervalIdH = '';
+	}else{
+		numH += num;
+		clearInterval(intervalIdH);
+		intervalIdH = setInterval(() => {
+
+			if(document.title === 'App'){
+				document.title = `(${numH}) New messages`;
+			}else{
+				document.title = 'App';
+			}
+		}, 1000);
+	}
+
+}
+
+
+//12i
+
+console.log('12i');
+
+
+let intervalIdI;
+
+let numI = 0;
+
+function titleChangeI(num){
+
+
+	if(intervalIdI){
+		clearInterval(intervalIdI);
+		intervalIdI = '';
+	}else if(numI <= 1 && num === -1){
+		numI = 0;
+		document.title = 'App';
+	}else{
+		numI += num;
+		clearInterval(intervalIdI);
+		intervalIdI = setInterval(() => {
+
+			if(document.title === 'App'){
+				document.title = `(${numI}) New messages`;
+			}else{
+				document.title = 'App';
+			}
+		}, 1000);
+	}
+
+}
 	
 
 
