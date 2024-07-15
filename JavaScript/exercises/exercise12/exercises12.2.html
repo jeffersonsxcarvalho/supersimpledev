@@ -135,7 +135,7 @@
 
 			<p>Exercise 12d - button changes immediately to loading... and after 1 sec it changes to finished.</p>
 
-			<button class="btn12d" onclick="btnToLoading(); setTimeout(btnToFinished2, 1000);">Start</button>
+			<button class="btn12dQ">Start</button>
 
 			<hr>
 
@@ -143,9 +143,9 @@
 
 			<p>Exercise 12e - message added when clicked add to cart btn and after 2 secs it disappears.</p>
 
-			<button class="btn12e" onclick="addMessage(); setTimeout(removeMessage, 2000);">Add to cart</button>
+			<button class="btn12eQ">Add to cart</button>
 
-			<p class="par12e"></p>
+			<p class="par12eQ"></p>
 
 			<hr>
 
@@ -153,9 +153,9 @@
 
 			<p>Exercise 12f - From 12e, restart the counting after we click again</p>
 
-			<button class="btn12f" onclick="appearAndDisappearMsg()">Add to cart</button>
+			<button class="btn12fQ">Add to cart</button>
 
-			<p class="par12f"></p>
+			<p class="par12fQ"></p>
 
 			<hr>
 
@@ -165,7 +165,7 @@
 
 			<!--as the next exercise is about title too, to put here in the same page I'll add a button to start and stop this function-->
 
-			<button onclick="titleChangeG()">Start/Stop</button>
+			<button class="btn12gQ">Start/Stop</button>
 
 			<hr>
 
@@ -174,8 +174,8 @@
 			<p>Exercise 12h - from 12g, use a variable and decrease or add by 1 clicking in a button to display '(num) New messages' instead of '(2) New messages'</p>
 
 
-			<button class="add" onclick="titleChangeH(1);">Add</button>
-			<button class="decrease" onclick="titleChangeH(-1);">Remove</button>
+			<button class="btnAddhQ">Add</button>
+			<button class="btnDecreasehQ">Remove</button>
 
 			<hr>
 
@@ -184,15 +184,23 @@
 			<p>Exercise 12i - from 12h, don't let message go below 0</p>
 
 
-			<button class="add" onclick="titleChangeI(1);">Add</button>
-			<button class="decrease" onclick="titleChangeI(-1);">Remove</button>
+			<button class="btnAddiQ">Add</button>
+			<button class="btnDecreaseiQ">Remove</button>
 
 	<hr>
 	<hr>
 	<hr>
 
 
+	<!--Challenge Exercises-->
 
+	<p style="font-weight: bold">Challenge Exercises! These exercises will build on the rock, paper, scissors game.</p>
+
+	<!--12r-->
+
+	<p>Exercise 12r - Create a function called removeEgg(array) that takes an array and returns an array where the word 'egg' is removed. Create this one using .filter() instead of a loop.</p>
+
+	<hr>
 
 	
   <script type="text/javascript" src="exercises12.2.js"></script>

@@ -358,13 +358,15 @@ console.log('12q');
 
 			console.log('12c');
 
-			const btn2 = document.querySelector('.btn12cQ');
+			const btnQc = document.querySelector('.btn12cQ');
 
 
-			const btnToFinishedQ = () => btn2.innerHTML = 'Finished';
+			const btnToFinishedQ = () => btnQc.innerHTML = 'Finished';
+
+			const setToQc = () => setTimeout(btnToFinishedQ, 1000)
 			
 
-			btn2.addEventListener('click', setTimeout(btnToFinishedQ, 1000));
+			btnQc.addEventListener("click", setToQc);
 
 			//setTimeout(btnToFinished(), 2000);
 
@@ -372,37 +374,44 @@ console.log('12q');
 
 			console.log('12d');
 
+			const btnQd = document.querySelector('.btn12dQ');
 
-/*
-			const btnToFinished2 = () => {
-				const btn = document.querySelector('.btn12d');
+			const btnToFinishedQd = () => btnQd.innerHTML = 'Finished';
 
-				btn.innerHTML = 'Finished';
+
+			const btnToLoadingQd = () => btnQd.innerHTML = 'Loading...';
+
+			const setToQd = () => {
+				btnToLoadingQd();
+				setTimeout(btnToFinishedQd, 1000);
 			}
 
-			const btnToLoading = () => {
-				const btn = document.querySelector('.btn12d');
-				btn.innerHTML = 'Loading...';
-			}
+			btnQd.addEventListener('click', setToQd);
+			
+
 
 			//12e
 
 			console.log('12e');
 
+			const par12Qe = document.querySelector('.par12eQ');
+			const btn12Qe = document.querySelector('.btn12eQ');
 
+			const addMessageQe = () => par12Qe.innerHTML = 'Added';
 
-			const addMessage = () => {
-				const par12e = document.querySelector('.par12e');
+			const removeMessageQe = () => par12Qe.innerHTML = '';
 
-				par12e.innerHTML = 'Added';	
+			const setToQe = () => {
+				addMessageQe();
+				setTimeout(removeMessageQe, 2000);
 			}
 
-			const removeMessage = () => {
 
-				const par12e = document.querySelector('.par12e');
+			btn12Qe.addEventListener('click', setToQe);
 
-				par12e.innerHTML = '';
-			}
+				
+			
+
 
 
 
@@ -412,143 +421,133 @@ console.log('12q');
 
 			//let isAppearing = false;
 
-			const removeMessage2 = () => {
-					
-				const par12f = document.querySelector('.par12f');
+			const par12Qf = document.querySelector('.par12fQ');
+			const btn12Qf = document.querySelector('.btn12fQ');
 
-				par12f.innerHTML = '';
-			}
+			const removeMessageQf = () => par12Qf.innerHTML = '';
 
-			const removeMsgTimeoutId = () => {
+			/*const removeMsgTimeoutIdQf = () => {
 					const timeoutId = setTimeout(removeMessage2, 2000);
 					return timeoutId;		
-			}
+			}*/
 
-			const stopTimoutRemoveMsg = (timeoutId) => {
-				clearTimeout(timeoutId);
-			}
+			const removeMsgTimeoutIdQf = () => setTimeout(removeMessageQf, 2000);
+
+			const stopTimoutRemoveMsgQf = (timeoutId) => clearTimeout(timeoutId);
 
 
-			let timeoutId;
+			let timeoutIdQf;
 
-			const appearAndDisappearMsg = () => {
+			const appearAndDisappearMsgQf = () => {
 
-				if(!timeoutId){
-					timeoutId = removeMsgTimeoutId()
-					
-					const par12f = document.querySelector('.par12f');
+				if(!timeoutIdQf){
+					timeoutIdQf = removeMsgTimeoutIdQf();
 
-					par12f.innerHTML = 'Added';
+					par12Qf.innerHTML = 'Added';
 				}else{
-					stopTimoutRemoveMsg(timeoutId);
+					stopTimoutRemoveMsgQf(timeoutIdQf);
 
-					timeoutId = removeMsgTimeoutId()
-					
-					const par12f = document.querySelector('.par12f');
+					timeoutIdQf = removeMsgTimeoutIdQf()
 
-					par12f.innerHTML = 'Added';
+					par12Qf.innerHTML = 'Added';
 				}
 				
 			}
+
+			btn12Qf.addEventListener('click', appearAndDisappearMsgQf);
+
+
 
 			//12g
 
 			console.log('12g');
 
+			let intervalIdQg;
 
-			const titleChange1 = () => {
+			const btn12Qg = document.querySelector('.btn12gQ');
 
-				if(document.title === 'App'){
-					document.title = '(2) New messages';
+			const titleChangeQg1 = () => document.title = document.title === 'App' ? '(2) New messages' : 'App';
+
+
+			const titleChangeQg = () => {
+
+				if(intervalIdQg){
+					clearInterval(intervalIdQg);
+					intervalIdQg = '';
 				}else{
-					document.title = 'App';
-				}
-			}
-
-			const setInt = (fun, time) => {
-				const intervalId = setInterval(fun, time);
-				return intervalId;
-			}
-
-			const clearInt = (intervalId) => {
-				if(intervalId){
-					clearInterval(intervalId);
-				}
-			}
-
-			let intervalId;
-
-			const titleChangeG = () => {
-
-				if(intervalId){
-					clearInterval(intervalId);
-					intervalId = '';
-				}else{
-					intervalId = setInterval(titleChange1, 1000);
+					intervalIdQg = setInterval(titleChangeQg1, 1000);
 				}
 
 			}
+
+			btn12Qg.addEventListener('click', titleChangeQg);
+
+
 
 			//12h
 
 			console.log('12h');
 
+			const btnAddQh = document.querySelector('.btnAddhQ');
+			const btnDecreaseQh = document.querySelector('.btnDecreasehQ');
 
-			let intervalIdH;
+			let intervalIdQh;
 
-			let numH = 0;
+			let numQh = 0;
 
-			const titleChangeH = (num) => {
+			const titleChangeQh = num => {
 
 
-				if(intervalIdH){
-					clearInterval(intervalIdH);
-					intervalIdH = '';
+				if(intervalIdQh){
+					clearInterval(intervalIdQh);
+					intervalIdQh = '';
 				}else{
-					numH += num;
-					clearInterval(intervalIdH);
-					intervalIdH = setInterval(() => {
-
-						if(document.title === 'App'){
-							document.title = `(${numH}) New messages`;
-						}else{
-							document.title = 'App';
-						}
-					}, 1000);
+					numQh += num;
+					clearInterval(intervalIdQh);
+					intervalIdQh = setInterval(() => document.title = document.title === 'App' ? `(${numQh}) New messages` : 'App', 1000);
 				}
 
 			}
 
+			btnAddQh.addEventListener('click', () => titleChangeQh(1));
+
+			btnDecreaseQh.addEventListener('click', () => titleChangeQh(-1));
+
+			
 
 			//12i
 
 			console.log('12i');
 
-
-			let intervalIdI;
-
-			let numI = 0;
-
-			const titleChangeI = (num) => {
+			const btnAddQi = document.querySelector('.btnAddiQ');
+			const btnDecreaseQi = document.querySelector('.btnDecreaseiQ');
 
 
-				if(intervalIdI){
-					clearInterval(intervalIdI);
-					intervalIdI = '';
-				}else if(numI <= 1 && num === -1){
-					numI = 0;
+			let intervalIdQi;
+
+			let numQi = 0;
+
+			const titleChangeQi = num => {
+
+
+				if(intervalIdQi){
+					clearInterval(intervalIdQi);
+					intervalIdQi = '';
+				}else if(numQi <= 1 && num === -1){
+					numQi = 0;
 					document.title = 'App';
 				}else{
-					numI += num;
-					clearInterval(intervalIdI);
-					intervalIdI = setInterval(() => {
-
-						if(document.title === 'App'){
-							document.title = `(${numI}) New messages`;
-						}else{
-							document.title = 'App';
-						}
-					}, 1000);
+					numQi += num;
+					clearInterval(intervalIdQi);
+					intervalIdQi = setInterval(() => document.title = document.title === 'App' ? `(${numQi}) New messages` : 'App', 1000);				
 				}
 
-			}*/
+			}	
+
+			btnAddQi.addEventListener('click', () => titleChangeQi(1));
+			btnDecreaseQi.addEventListener('click', () => titleChangeQi(-1));	
+
+
+//12r
+
+console.log('12r');			
