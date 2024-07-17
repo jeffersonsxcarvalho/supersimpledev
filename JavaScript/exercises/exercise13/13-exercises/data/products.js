@@ -656,5 +656,36 @@ const products = [
       "apparel",
       "mens"
     ]
+  },
+  //13g - Add some more products
+  {
+    id: "id1",
+    image: "images/products/backpack.jpg",
+    name: "backpack Medium Size",
+    rating: {
+      stars: 4.5,
+      count: 3385
+    },
+    priceCents: 10200,
+    keywords: [
+      "bag",
+      "back",
+      "school",
+      "boys"
+    ]
+  },
+  {
+    id: "id2",
+    image: "images/products/umbrella.jpg",
+    name: "Black Umbrella",
+    rating: {
+      stars: 5,
+      count: 654
+    },
+    priceCents: 5800,
+    keywords: [
+      "rain",
+      "winter"
+    ]
   }
 ];
