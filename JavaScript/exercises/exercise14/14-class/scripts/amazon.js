@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 
 //14 - We can rename this variable with modules like
 //import {cart as myCart} from '../data/cart.js';
