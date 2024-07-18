@@ -1,3 +1,9 @@
+import {cart} from '../data/cart.js';
+
+//14 - We can rename this variable with modules like
+//import {cart as myCart} from '../data/cart.js';
+
+
 let productsHTML = '';
 
 products.forEach((product) => {
