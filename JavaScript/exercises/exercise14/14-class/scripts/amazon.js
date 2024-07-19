@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 //14 - We can rename this variable with modules like
@@ -78,6 +78,39 @@ function removeClass(elem, cl) {
 }
 
 
+//14 - separate the code in a function
+
+function addedDisappear(productId, addedToCart) {
+    //13m - Extra (I did it, wanna see the old code, go to class 13 page)
+
+      if(!timeoutAddCart){
+        timeoutAddCart = setTimeout(() => {
+          removeClass(addedToCart, 'opacity1');
+        }, 2000);
+        prevProductId = productId;
+      }else if(timeoutAddCart && prevProductId !== productId){
+        timeoutAddCart = setTimeout(() => {
+          removeClass(addedToCart, 'opacity1');
+        }, 2000);
+        prevProductId = productId;
+      }else if(timeoutAddCart && prevProductId === productId){
+          clearTimeout(timeoutAddCart);
+          timeoutAddCart = setTimeout(() => {
+          removeClass(addedToCart, 'opacity1');
+        }, 2000);
+      }
+}
+
+function updateCartQuantity() {
+    let cartQuantity = 0;
+
+    cart.forEach((cartItem) => {
+      //13g
+        cartQuantity += cartItem.quantityValue;
+    });
+
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
 
 
 document.querySelectorAll('.js-add-to-cart-button')
@@ -101,117 +134,11 @@ document.querySelectorAll('.js-add-to-cart-button')
 
       addedToCart.classList.add('opacity1');
 
-      /*Commented by 13m
-      //C.E. 13l
-      const timeoutAddCart = setTimeout(() => {
-        removeClass(addedToCart, 'opacity1');
-      }, 2000);*/
+      addedDisappear(productId, addedToCart);
 
-      //Commented by 13m - Extra
-      //C. E. 13m - refresh add to cart setTimeout
-      /*if(timeoutAddCart){
-        clearTimeout(timeoutAddCart);
-          timeoutAddCart = setTimeout(() => {
-          removeClass(addedToCart, 'opacity1');
-        }, 2000);
-      }else{
-        timeoutAddCart = setTimeout(() => {
-          removeClass(addedToCart, 'opacity1');
-        }, 2000);
-      }*/
+      addToCart(productId, quantityValue);
 
-      //13m - Extra
-
-      if(!timeoutAddCart){
-        timeoutAddCart = setTimeout(() => {
-          removeClass(addedToCart, 'opacity1');
-        }, 2000);
-        prevProductId = productId;
-      }else if(timeoutAddCart && prevProductId !== productId){
-        timeoutAddCart = setTimeout(() => {
-          removeClass(addedToCart, 'opacity1');
-        }, 2000);
-        prevProductId = productId;
-      }else if(timeoutAddCart && prevProductId === productId){
-          clearTimeout(timeoutAddCart);
-          timeoutAddCart = setTimeout(() => {
-          removeClass(addedToCart, 'opacity1');
-        }, 2000);
-      }
-
-      //console.log(quantityValue);
-
-      let matchingItem;
-
-      cart.forEach((item) => {
-        if(productId === item.productId){
-          matchingItem = item;
-        }
-      });
-
-        if(matchingItem){
-          //13g
-           matchingItem.quantityValue += quantityValue;
-          /*Commented by 13g
-          //13e
-          matchingItem.quantityValue += quantity
-          // Commented by 13e [ matchingItem.quantity += 1; ]
-          */
-        }else{
-          //13h
-          cart.push({           
-
-            productId, 
-
-            quantityValue
-          });
-
-
-          //Commented by 13h
-
-          /*cart.push({           
-
-            productId: productId, 
-
-            quantityValue: quantityValue
-          });*/
-
-
-
-            
-          //13e  
-
-          /*cart.push({           
-
-            productId: productId, 
-
-            quantity: quantityValue;
-
-          });*/ 
-
-
-          //Commented by 13e  
-
-          /*cart.push({           
-
-            productId: productId, 
-
-            quantity: 1;
-          });*/    
-    
-        }
-
-        let cartQuantity = 0;
-
-        cart.forEach((item) => {
-          //13g
-          cartQuantity += item.quantityValue;
-          //commented by 13g  [ cartQuantity += item.quantity; ]
-        })
-
-       // console.log(cartQuantity);
-
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+      updateCartQuantity();
 
     })
   });
