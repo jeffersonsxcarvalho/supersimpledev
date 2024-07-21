@@ -50,6 +50,8 @@ import {formatCurrency} from './utils/money.js';
 	              <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
 	                Delete
 	              </span>
+	              <!--14n I added-->
+	              <p class="validate-quantity-input js-validate-quantity-${matchingProduct.id}"></p>
 	            </div>
 	          </div>
 
@@ -153,22 +155,53 @@ document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
 
 //14j
 
-document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
-	link.addEventListener('click', () => {
+//14n created a function to use Enter
+function saveQuantity(link) {
+	
 		const productId = link.dataset.productId;
-		
-		document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
 
 		//14k - Adicionei as classes no html para poder trazer esses elementos.
 		const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
 
-		//14l
-		updateQuantity(productId, newQuantity);
+		//14n
+		const validationMessage = document.querySelector(`.js-validate-quantity-${productId}`);
 
-		//14m
-		document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
+		//14n 'added this "if-else" to validate the input value'
 
-		calculateCartQuantity(cart, '.js-return-to-home-link')
+		if(newQuantity > 0 && newQuantity <= 1000){
+
+			
+			document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+			//14l
+			updateQuantity(productId, newQuantity);
+
+			//14m
+			document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
+
+			calculateCartQuantity(cart, '.js-return-to-home-link');	
+
+			//14n
+			validationMessage.innerHTML = '';
+		}else{
+			//14n
+			validationMessage.innerHTML = 'Valor invalido!';
+		}
+	
+}
+
+document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
+	link.addEventListener('click', () => {
+		saveQuantity(link);
+	});
+
+	//14n - Evento de teclado usar Enter para salvar.
+
+	document.body.addEventListener('keydown', (event) => {
+		if(event.key === 'Enter'){
+			saveQuantity(link);
+		}
 	})
 });
+
 

@@ -237,5 +237,8 @@
   display: none;
 }
 
+.validate-quantity-input {
+  color: red;
+}
 
 
