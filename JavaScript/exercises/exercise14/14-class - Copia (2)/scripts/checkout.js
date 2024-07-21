@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity, updateQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 // 14b my solution commented by 14e import {updateCartQuantity} from './utils/cart-quantity.js';
 import {formatCurrency} from './utils/money.js';
@@ -40,11 +40,13 @@ import {formatCurrency} from './utils/money.js';
 	            </div>
 	            <div class="product-quantity">
 	              <span>
-	                Quantity: <span class="quantity-label">${cartItem.quantityValue}</span>
+	                Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantityValue}</span>
 	              </span>
-	              <span class="update-quantity-link link-primary">
+	              <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingProduct.id}">
 	                Update
 	              </span>
+	              <input class="quantity-input js-quantity-input-${matchingProduct.id}">
+	              <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingProduct.id}">Save</span>
 	              <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
 	                Delete
 	              </span>
@@ -128,8 +130,45 @@ calculateCartQuantity(cart, '.js-return-to-home-link');
 //commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
 
 //14e
-calculateCartQuantity(cart, '.js-return-to-home-link');
+calculateCartQuantity(cart, '.js-return-to-home-link')
     
 
 
 //document.querySelector().innerHTML = cart.quantityValue;
+
+//Challenge Exercises
+
+//14f
+
+document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
+	link.addEventListener('click', () => {
+		const productId = link.dataset.productId;
+
+		//14g
+		document.querySelector(`.js-cart-item-container-${productId}`).classList.add('is-editing-quantity');
+	})
+});
+
+//14i está no checkout.css
+
+//14j
+
+document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
+	link.addEventListener('click', () => {
+		const productId = link.dataset.productId;
+		
+		document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+		//14k - Adicionei as classes no html para poder trazer esses elementos.
+		const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+
+		//14l
+		updateQuantity(productId, newQuantity);
+
+		//14m
+		document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
+
+		calculateCartQuantity(cart, '.js-return-to-home-link')
+	})
+});
+
