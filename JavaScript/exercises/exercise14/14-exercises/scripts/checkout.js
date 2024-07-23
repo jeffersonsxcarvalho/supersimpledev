@@ -11,7 +11,7 @@ import {formatCurrency} from './utils/money.js';
 
 
 	cart.forEach((cartItem) => {
-		const productId = cartItem.productId;
+	    const productId = cartItem.productId;
 
 		let matchingProduct;
 
