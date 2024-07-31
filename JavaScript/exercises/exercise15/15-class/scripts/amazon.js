@@ -1,6 +1,7 @@
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
+//14b import {updateCartQuantity} from './utils/cart-quantity.js';
 
 //14 - We can rename this variable with modules like
 //import {cart as myCart} from '../data/cart.js';
@@ -102,6 +103,10 @@ function addedDisappear(productId, addedToCart) {
       }
 }
 
+
+
+/*commented by 14b
+
 function updateCartQuantity() {
     let cartQuantity = 0;
 
@@ -111,7 +116,7 @@ function updateCartQuantity() {
     });
 
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-}
+}*/
 
 
 document.querySelectorAll('.js-add-to-cart-button')
@@ -139,11 +144,18 @@ document.querySelectorAll('.js-add-to-cart-button')
 
       addToCart(productId, quantityValue);
 
-      updateCartQuantity();
+      //14c
+      //commented by 14e updateCartQuantity(cart, '.js-cart-quantity');
+      
+      //14e
+      calculateCartQuantity(cart, '.js-cart-quantity');
 
     })
   });
 
-//12f
+//14d
+//commented by 14e updateCartQuantity(cart, '.js-cart-quantity');
 
-  console.log('12f - chose other quantity and will commit here');
+//14e
+calculateCartQuantity(cart, '.js-cart-quantity');
+

@@ -45,7 +45,7 @@ import {formatCurrency} from './utils/money.js';
 	              <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingProduct.id}">
 	                Update
 	              </span>
-	              <input class="quantity-input js-quantity-input-${matchingProduct.id}">
+	              <input class="quantity-input js-quantity-input-${matchingProduct.id}" value="${cartItem.quantityValue}">
 	              <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingProduct.id}">Save</span>
 	              <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
 	                Delete
@@ -163,6 +163,7 @@ function saveQuantity(link) {
 		//14k - Adicionei as classes no html para poder trazer esses elementos.
 		const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
 
+
 		//14n
 		const validationMessage = document.querySelector(`.js-validate-quantity-${productId}`);
 
@@ -185,7 +186,7 @@ function saveQuantity(link) {
 			validationMessage.innerHTML = '';
 		}else{
 			//14n
-			validationMessage.innerHTML = 'Valor invalido!';
+			validationMessage.innerHTML = 'Valor inválido!';
 		}
 	
 }
@@ -201,7 +202,11 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
 		if(event.key === 'Enter'){
 			saveQuantity(link);
 		}
-	})
+	});
+
 });
+
+//Um bug é que quando se carregava a página, ao tentar editar a quantidade de um item, a mensagem de 'Valor inválido' aparecia nos outros produtos,
+//com isso, adicionei value="cartItem.quantityValue" nos input  ao gerá-los e assim se resolveu o problema.
 
 
