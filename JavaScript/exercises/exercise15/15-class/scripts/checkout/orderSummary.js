@@ -1,5 +1,5 @@
 import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliveryOption} from '../../data/cart.js';
-import {products} from '../../data/products.js';
+import {products, getProduct} from '../../data/products.js';
 // 14b my solution commented by 14e import {updateCartQuantity} from './utils/cart-quantity.js';
 import {formatCurrency} from '../utils/money.js';
 
@@ -9,7 +9,7 @@ import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
-import {deliveryOptions} from '../../data/deliveryOptions.js';
+import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js';
 
 //note that modules should be the esm version (esm - EcmaScript modules);
 
@@ -34,25 +34,13 @@ export function renderOrderSummary() {
 	cart.forEach((cartItem) => {
 	    const productId = cartItem.productId;
 
-		let matchingProduct;
-
-		products.forEach((product) => {
-			if(productId === product.id){
-				matchingProduct = product;
-			}
-		});
+		const matchingProduct = getProduct(productId);
 
 		//class 15
 
 		const deliveryOptionId = cartItem.deliveryOptionId;
 
-		let deliveryOption;
-
-		deliveryOptions.forEach(option => {
-			if(option.id === deliveryOptionId){
-				deliveryOption = option;
-			}
-		});
+		const deliveryOption = getDeliveryOption(deliveryOptionId);
 
 
 		const today = dayjs();
