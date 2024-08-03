@@ -11,19 +11,9 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js';
 
-//note that modules should be the esm version (esm - EcmaScript modules);
+import {renderPaymentSummary} from './paymentSummary.js'
 
-//externl lib
-hello();
-
-//day js lib
-
-const todayTest = dayjs();
-const deliveryDateTest = todayTest.add(7, 'days');
-
-//easy-to-read-format
-console.log(todayTest.format('dddd, MMMM D.'))
-console.log(deliveryDateTest.format('dddd, MMMM D.'));
+//note that modules should be the esm version (esm - EcmaScript modules)
 
 
 export function renderOrderSummary() {
@@ -162,104 +152,110 @@ export function renderOrderSummary() {
 			const {deliveryOptionId} = element.dataset;
 			updateDeliveryOption(productId, deliveryOptionId);
 			renderOrderSummary();
+			renderPaymentSummary();
 		});
 	})
 
-}
+	document.querySelectorAll('.js-delete-link').forEach((link) => {
+		link.addEventListener('click', () => {
+			const productId = link.dataset.productId;
+			removeFromCart(productId);
+			//generateCartSummary(); I created this function
+			const container = document.querySelector(`
+				.js-cart-item-container-${productId}
+				`
+			);
+			container.remove();
+			//14c
+			//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
 
-
-document.querySelectorAll('.js-delete-link').forEach((link) => {
-	link.addEventListener('click', () => {
-		const productId = link.dataset.productId;
-		removeFromCart(productId);
-		//generateCartSummary(); I created this function
-		const container = document.querySelector(`
-			.js-cart-item-container-${productId}
-			`
-		);
-		container.remove();
-		//14c
-		//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
-
-		//14e
-calculateCartQuantity(cart, '.js-return-to-home-link');
-	})
-});
-
-//14b
-//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
-
-//14e
-calculateCartQuantity(cart, '.js-return-to-home-link')
-    
-
-
-//document.querySelector().innerHTML = cart.quantityValue;
-
-//Challenge Exercises
-
-//14f
-
-document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
-	link.addEventListener('click', () => {
-		const productId = link.dataset.productId;
-
-		//14g
-		document.querySelector(`.js-cart-item-container-${productId}`).classList.add('is-editing-quantity');
-	})
-});
-
-//14i está no checkout.css
-
-//14j
-
-//14n created a function to use Enter
-function saveQuantity(link) {
-	
-		const productId = link.dataset.productId;
-
-		//14k - Adicionei as classes no html para poder trazer esses elementos.
-		const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
-
-		//14n
-		const validationMessage = document.querySelector(`.js-validate-quantity-${productId}`);
-
-		//14n 'added this "if-else" to validate the input value'
-
-		if(newQuantity > 0 && newQuantity <= 1000){
-
-			
-			document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
-
-			//14l
-			updateQuantity(productId, newQuantity);
-
-			//14m
-			document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
-
-			calculateCartQuantity(cart, '.js-return-to-home-link');	
-
-			//14n
-			validationMessage.innerHTML = '';
-		}else{
-			//14n
-			validationMessage.innerHTML = 'Valor invalido!';
-		}
-	
-}
-
-document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
-	link.addEventListener('click', () => {
-		saveQuantity(link);
+			//14e
+			calculateCartQuantity(cart, '.js-return-to-home-link');
+			renderPaymentSummary();
+		})
 	});
 
-	//14n - Evento de teclado usar Enter para salvar.
 
-	document.body.addEventListener('keydown', (event) => {
-		if(event.key === 'Enter'){
+
+
+	//14b
+	//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
+
+	//14e
+	calculateCartQuantity(cart, '.js-return-to-home-link')
+	    
+
+
+	//document.querySelector().innerHTML = cart.quantityValue;
+
+	//Challenge Exercises
+
+	//14f
+
+	document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
+		link.addEventListener('click', () => {
+			const productId = link.dataset.productId;
+
+			//14g
+			document.querySelector(`.js-cart-item-container-${productId}`).classList.add('is-editing-quantity');
+		})
+	});
+
+	//14i está no checkout.css
+
+	//14j
+
+	//14n created a function to use Enter
+	function saveQuantity(link) {
+		
+			const productId = link.dataset.productId;
+
+			//14k - Adicionei as classes no html para poder trazer esses elementos.
+			const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+
+			//14n
+			const validationMessage = document.querySelector(`.js-validate-quantity-${productId}`);
+
+			//14n 'added this "if-else" to validate the input value'
+
+			if(newQuantity > 0 && newQuantity <= 1000){
+
+				
+				document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+				//14l
+				updateQuantity(productId, newQuantity);
+
+				//14m
+				document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
+
+				calculateCartQuantity(cart, '.js-return-to-home-link');	
+
+				//14n
+				validationMessage.innerHTML = '';
+			}else{
+				//14n
+				validationMessage.innerHTML = 'Valor invalido!';
+			}
+		
+	}
+
+	document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
+		link.addEventListener('click', () => {
 			saveQuantity(link);
-		}
-	})
-});
+			renderPaymentSummary();
+		});
+
+		//14n - Evento de teclado usar Enter para salvar.
+
+		document.body.addEventListener('keydown', (event) => {
+			if(event.key === 'Enter'){
+				saveQuantity(link);
+				renderPaymentSummary();
+			}
+		});
+		
+	});
+}
 
 
