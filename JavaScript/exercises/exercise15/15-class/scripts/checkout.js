@@ -26,7 +26,7 @@ console.log(todayTest.format('dddd, MMMM D.'))
 console.log(deliveryDateTest.format('dddd, MMMM D.'));
 
 
-//function generateCartSummary() {
+function renderOrderSummary() {
 
 	let cartSummaryHTML = '';
 
@@ -112,6 +112,7 @@ console.log(deliveryDateTest.format('dddd, MMMM D.'));
 		`;
 	});	
 
+
 //class 15
 function deliveryOptionsHTML(matchingProduct, cartItem) {
 	let html = '';
@@ -158,7 +159,9 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
 
 
 	document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
-//}
+
+
+
 
 
 //class 15 it needs to be below the line above, because js needs to have generated before we get these elements
@@ -170,12 +173,14 @@ document.querySelectorAll('.js-delivery-option').forEach(element => {
 		//const deliveryOptionId = element.dataset.deliveryOptionId
 		const {deliveryOptionId} = element.dataset;
 		updateDeliveryOption(productId, deliveryOptionId);
-		
+		renderOrderSummary();
 	});
 })
 
+}
 
-//generateCartSummary();
+
+renderOrderSummary();
 
 
 document.querySelectorAll('.js-delete-link').forEach((link) => {
