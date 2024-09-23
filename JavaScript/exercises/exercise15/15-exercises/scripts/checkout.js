@@ -70,7 +70,7 @@ console.log(dateStringD);
 
 //exercise 15E
 
-console.log('EXERCISE 15E---');
+console.log('EXERCISE 15E And 15F---');
 
 //function moved to exercise/exercise15f.js by exercise 15f and I am using it as module. 
 

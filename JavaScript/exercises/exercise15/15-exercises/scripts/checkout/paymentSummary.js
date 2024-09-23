@@ -29,7 +29,7 @@ export function renderPaymentSummary() {
 
 	const paymentSummaryHTML = 	`
 	  <div class="payment-summary-title">
-        Order Summary
+        Payment Summary
       </div>
 
       <div class="payment-summary-row">

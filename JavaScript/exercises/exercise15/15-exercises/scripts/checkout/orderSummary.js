@@ -161,11 +161,19 @@ export function renderOrderSummary() {
 			const productId = link.dataset.productId;
 			removeFromCart(productId);
 			//generateCartSummary(); I created this function
-			const container = document.querySelector(`
+			
+			//15h - regenerate html instead o using .delete()
+			
+			/*const container = document.querySelector(`
 				.js-cart-item-container-${productId}
 				`
 			);
-			container.remove();
+			container.remove();*/
+
+			renderOrderSummary();
+			//Fim 15h
+
+
 			//14c
 			//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
 
