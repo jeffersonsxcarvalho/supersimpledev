@@ -74,5 +74,6 @@ export function renderPaymentSummary() {
 
  	document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
- 	calculateCartQuantity(cart, '.js-items-quantity');
+ 	//15i - I have done this before, but it's to update the products quantity in the payment summary
+  calculateCartQuantity(cart, '.js-items-quantity');
 }
