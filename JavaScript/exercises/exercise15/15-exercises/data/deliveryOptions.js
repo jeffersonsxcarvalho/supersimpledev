@@ -1,5 +1,7 @@
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
+import {isWeekend, countWeekendDays} from '../scripts/utils/date.js';
+
 export function getDeliveryOption(deliveryOptionId) {
 	let deliveryOption;
 
@@ -12,13 +14,18 @@ export function getDeliveryOption(deliveryOptionId) {
 	return deliveryOption || deliveryOptions[0];
 }
 
+//Exercise 15l
 export function calculateDeliveryDate(deliveryOption) {
 	const today = dayjs();
 
-	const deliveryDate = today.add(
+	let deliveryTmpDate = today.add(
 		deliveryOption.deliveryDays,
 		'days'
 	);
+
+//exercise 15m
+	let deliveryDate = deliveryTmpDate.add(countWeekendDays(deliveryTmpDate), 'days');
+	
 
 	const dateString = deliveryDate.format(
 		'dddd, MMMM D'
