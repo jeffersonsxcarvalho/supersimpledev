@@ -9,14 +9,19 @@ import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
-import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js';
+import {deliveryOptions, getDeliveryOption, calculateDeliveryDate} from '../../data/deliveryOptions.js';
 
 import {renderPaymentSummary} from './paymentSummary.js'
 
 //note that modules should be the esm version (esm - EcmaScript modules)
 
+//15J
+import {renderCheckoutHeader} from './checkoutHeader.js';
+
 
 export function renderOrderSummary() {
+
+
 
 	let cartSummaryHTML = '';
 
@@ -33,22 +38,13 @@ export function renderOrderSummary() {
 		const deliveryOption = getDeliveryOption(deliveryOptionId);
 
 
-		const today = dayjs();
-
-		const deliveryDate = today.add(
-			deliveryOption.deliveryDays,
-			'days'
-		);
-
-		const dateString = deliveryDate.format(
-			'dddd, MMMM D'
-		);
+		
 		
 
 		cartSummaryHTML +=	`
 		  <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
 	        <div class="delivery-date">
-	          Delivery date: ${dateString}
+	          Delivery date: ${calculateDeliveryDate(deliveryOption)}
 	        </div>
 
 	        <div class="cart-item-details-grid">
@@ -96,16 +92,6 @@ export function renderOrderSummary() {
 		let html = '';
 
 		deliveryOptions.forEach((deliveryOption) => {
-			const today = dayjs();
-
-			const deliveryDate = today.add(
-				deliveryOption.deliveryDays,
-				'days'
-			);
-
-			const dateString = deliveryDate.format(
-				'dddd, MMMM D'
-			);
 
 			const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatCurrency(deliveryOption.priceCents)} -`;
 
@@ -121,7 +107,7 @@ export function renderOrderSummary() {
 		            name="delivery-option-${matchingProduct.id}">
 		          <div>
 		            <div class="delivery-option-date">
-		              ${dateString}
+		              ${calculateDeliveryDate(deliveryOption)}
 		            </div>
 		            <div class="delivery-option-price">
 		              ${priceString} Shipping
@@ -136,9 +122,7 @@ export function renderOrderSummary() {
 
 
 
-		document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
-
-
+	document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
 
 
@@ -178,7 +162,9 @@ export function renderOrderSummary() {
 			//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
 
 			//14e
-			calculateCartQuantity(cart, '.js-return-to-home-link');
+			//Commented by 15J calculateCartQuantity(cart, '.js-return-to-home-link');
+			renderCheckoutHeader()
+
 			renderPaymentSummary();
 		})
 	});
@@ -190,7 +176,8 @@ export function renderOrderSummary() {
 	//commented by 14e updateCartQuantity(cart, '.js-return-to-home-link');
 
 	//14e
-	calculateCartQuantity(cart, '.js-return-to-home-link')
+	//Commented by 15J calculateCartQuantity(cart, '.js-return-to-home-link')
+	renderCheckoutHeader()
 	    
 
 
@@ -237,7 +224,8 @@ export function renderOrderSummary() {
 				//14m
 				document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity;
 
-				calculateCartQuantity(cart, '.js-return-to-home-link');	
+				//Commented by 15j calculateCartQuantity(cart, '.js-return-to-home-link');	
+				renderCheckoutHeader();
 
 				//14n
 				validationMessage.innerHTML = '';
@@ -264,6 +252,7 @@ export function renderOrderSummary() {
 		});
 		
 	});
+
 }
 
 
